@@ -1,0 +1,13 @@
+services:
+  - type: worker  # ប្រើ 'worker' សម្រាប់ Bot ដែលដំណើរការជាប់រហូត
+    name: deepseek-khmer-bot
+    runtime: python
+    buildCommand: "pip install --upgrade pip setuptools wheel && pip install -r requirements.txt"
+    startCommand: "python3 bot.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.4
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # យើងនឹងកំណត់ค่าនេះនៅក្នុង Dashboard
+      - key: DEEPSEEK_API_KEY
+        sync: false # យើងនឹងកំណត់ค่าនេះនៅក្នុង Dashboard
